@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "947253687521",
+    "firebase_url": "https://android-games-8d38b-default-rtdb.firebaseio.com",
+    "project_id": "android-games-8d38b",
+    "storage_bucket": "android-games-8d38b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947253687521:android:3a43765fc90f3b8cebb3a0",
+        "android_client_info": {
+          "package_name": "com.example.tictactoe_kotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947253687521-6hp25kmcmrlapgr0hqcbbr30br260ptl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqmSmm_u60zRfpYgA-hzgARITmxWF1NHs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947253687521-6hp25kmcmrlapgr0hqcbbr30br260ptl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
