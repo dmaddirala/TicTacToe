@@ -14,30 +14,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="16dp"
         android:gravity="center"
         android:text="Welcome !"
         android:paddingLeft="16dp"
         android:paddingRight="8dp"
         android:textSize="32sp"/>
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:paddingLeft="16dp"-->
-<!--        android:layout_marginBottom="30dp"-->
-<!--        android:orientation="horizontal">-->
-<!--        <Button-->
-<!--            android:layout_width="20dp"-->
-<!--            android:layout_height="30dp"-->
-<!--            android:backgroundTint="@android:color/holo_red_dark"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_marginLeft="16dp"-->
-<!--            android:gravity="center_vertical"-->
-<!--            android:text="Turn"/>-->
-<!--    </LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        android:visibility="visible"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_color_indicator"
+            android:layout_width="10dp"
+            android:layout_height="20dp"
+            android:backgroundTint="@color/red"/>
+        <TextView
+            android:id="@+id/tv_turn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:gravity="center_vertical"
+            android:text="Turn"/>
+
+    </LinearLayout>
 
 
     <LinearLayout
