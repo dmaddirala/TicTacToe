@@ -279,13 +279,13 @@ class MainActivity : AppCompatActivity() {
             .child(sessionId!!)
             .child("MatchStart").addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-
                     try {
                         matchStartFlag = snapshot.value as Boolean
                         if (matchStartFlag) {
                             nameTv.setText("Match Started")
                             colorIndicator.visibility = View.VISIBLE
                             turnTv.visibility = View.VISIBLE
+
                         } else {
 //                            reset()
                         }
@@ -327,7 +327,7 @@ class MainActivity : AppCompatActivity() {
             myRef.child("PlayGame")
                 .child(sessionId!!)
                 .child("Turn")
-                .setValue(currentUsername)
+                .setValue(opponentUsername)
         }
         for (button in buttons) {
             button.setBackgroundColor(resources.getColor(R.color.light_grey))
@@ -354,9 +354,9 @@ class MainActivity : AppCompatActivity() {
                                 value = i.value.toString()
                                 key = i.key!!.toInt()
                                 if (value == currentUsername) {
-                                    activePlayer = if (mySymbol == "O") 1 else 2
+                                    activePlayer = if (mySymbol == "X") 1 else 2
                                 } else {
-                                    activePlayer = if (mySymbol == "O") 2 else 1
+                                    activePlayer = if (mySymbol == "X") 2 else 1
                                 }
                                 checkBox(key)
                             }
@@ -486,34 +486,38 @@ class MainActivity : AppCompatActivity() {
 
 
         if (winner == 1) {
+            Log.i("TAG", "Winner 1 - Player 1: "+player1 + " Player 2: "+player2)
+
+            nameTv.setText("Match Ended")
+            for (button in buttons) {
+                button.isEnabled = false
+            }
             if (mySymbol == "X") {
                 Toast.makeText(this, currentUsername + " Wins the Match", Toast.LENGTH_LONG).show()
             } else {
                 Toast.makeText(this, opponentUsername + " Wins the Match", Toast.LENGTH_LONG).show()
+                Handler().postDelayed({
+                    reset()
+                    nameTv.setText("Match Started")
+                }, 2250)
             }
-            nameTv.setText("Match Ended")
 
+        } else if (winner == 2) {
+            Log.i("TAG", "Winner 2 - Player 1: "+player1 + " Player 2: "+player2)
+
+            nameTv.setText("Match Ended")
             for (button in buttons) {
                 button.isEnabled = false
             }
-            Handler().postDelayed({
-                reset()
-                nameTv.setText("Match Started")
-            }, 2250)
-        } else if (winner == 2) {
             if (mySymbol == "O") {
                 Toast.makeText(this, currentUsername + " Wins the Match", Toast.LENGTH_LONG).show()
             } else {
                 Toast.makeText(this, opponentUsername + " Wins the Match", Toast.LENGTH_LONG).show()
+                Handler().postDelayed({
+                    reset()
+                    nameTv.setText("Match Started")
+                }, 2250)
             }
-            nameTv.setText("Match Ended")
-            for (button in buttons) {
-                button.isEnabled = false
-            }
-            Handler().postDelayed({
-                reset()
-                nameTv.setText("Match Started")
-            }, 2250)
 
         } else if ((player1.size + player2.size) == 9) {
             Toast.makeText(this, "It's a Draw", Toast.LENGTH_SHORT).show()
